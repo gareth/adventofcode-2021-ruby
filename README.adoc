@@ -1,1 +1,6 @@
 # Advent of Code 2021
+
+```
+$ rake 3 # Run day 3's code
+$ rake current # Run the latest day's code
+```
