@@ -1,0 +1,7 @@
+Style/HashSyntax:
+  EnforcedStyle: hash_rockets
+  Exclude:
+    - Rakefile
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
