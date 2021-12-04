@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require "pry"
 
-DAY_GLOB = "day*".freeze
+DAY_GLOB = "day*"
 INPUTS = {
   test: "test.txt",
   challenge: "input.txt"
@@ -20,7 +22,7 @@ Pathname.glob(DAY_GLOB).each do |dir|
   task dir do
     puts "Running day #{day}"
 
-    dir.glob("*.rb").sort.each do |exercise|
+    dir.glob("?.rb").sort.each do |exercise|
       INPUTS.each do |level, file|
         input = dir.join(file)
         if input.file?
