@@ -11,10 +11,12 @@ INPUTS = {
 task default: :current
 
 desc "Run the latest day's exercise"
-last = Dir[DAY_GLOB].last
+last = Dir[DAY_GLOB].max
 task :current => last
 
-Pathname.glob(DAY_GLOB).each do |dir|
+paths = Pathname.glob(DAY_GLOB)
+
+paths.each do |dir|
   day = dir.to_s[/(?<=day)\d+/].to_i
 
   # e.g. `rake day03`
@@ -36,3 +38,6 @@ Pathname.glob(DAY_GLOB).each do |dir|
   # e.g. `rake 3` as a shortcut
   task day => dir
 end
+
+desc "Run all days's exercises"
+task :all => paths.sort
